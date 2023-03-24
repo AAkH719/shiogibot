@@ -1,0 +1,21 @@
+Index: main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/main.py b/main.py
+--- a/main.py	
++++ b/main.py	(date 1678957754218)
+@@ -244,9 +244,9 @@
+ 
+ def figure_back(update, context):
+     query = update.callback_query
+-    #last_message = query.message.message_id - 1
+-    update.massage.delete_message(chat_id=query.message.chat.id, message_id=query.message.message_id-1)
+-    #query.delete_message(query.message.chat.id, query.message.message_id)
++    last_message_id = query.message.message_id - 1
++    #update.massage.delete_message(chat_id=query.message.chat.id, message_id=query.message.message_id-1)
++    query.delete_message(query.message.chat.id, last_message_id)
+     text = "Фигуры\nВ начале партии фигуры расставляются по свои лагерям.\n Всего в сражении на доске учувствует 40 фигур, по 20 с каждой стороны. На каждую фигуру нанесены иероглифы кандзи обозначающие их имена. Обычно фигуры обозначаются двумя иероглифами, но нередко обозначение сокращают до одного иероглифа. О превращениях фигур поговорим чуть позже. В сёги 8 видов основных фигур и 6 перевёрнутых, которые в итоге дают 10 различных по возможностям фигур. Ниже вы можете узнать о них подробнее:"
+     btn1 = InlineKeyboardButton(text='Осё и Гёкусё', callback_data='Ose_and_Hecuse')
+     btn2 = InlineKeyboardButton(text='Хися (Летающая колесница)', callback_data='Flying_Chariot')
