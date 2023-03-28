@@ -1,8 +1,14 @@
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CallbackQueryHandler, CommandHandler
 import random
+from os import getenv
+from sys import exit
 
-updater = Updater(token='6046554294:AAGCgOyRTD1_Fx40PamgWz9KL9n-obRwP4g')
+bot_token = getenv("BOT_TOKEN")
+if not bot_token:
+    exit("Error: no token provided")
+
+updater = Updater(token=bot_token)
 dispatcher = updater.dispatcher
 id_list = list(random.sample(range(50), 50))
 ans = []
